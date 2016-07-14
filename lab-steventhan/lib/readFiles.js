@@ -1,17 +1,17 @@
 const fs = require('fs');
-const Promise = require('bluebird');
+var EE = require('events');
 
 var files = process.argv.slice(2);
 
-files.forEach((file) => {
-  return new Promise((resolve, reject) => {
-    fs.readFile(file, (err, data) => {
-      if (err) reject(err);
-      resolve(data);
-    });
-  }).then((data) => {
-    console.log(data.toString());
-  }).catch((err) => {
-    console.log(err);
+var ee = new EE();
+
+ee.on('readFileDone', (data) => {
+  if (data) console.log(data.toString());
+  if (files.length === 0) return;
+  fs.readFile(files.shift(), (err, data) => {
+    if (err) console.log(err);
+    ee.emit('readFileDone', data);
   });
 });
+
+ee.emit('readFileDone');
