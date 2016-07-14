@@ -7,7 +7,6 @@ module.exports = exports = function readFiles(fileArr, callback, writeStream) {
   writeStream = writeStream || process.stdout;
   fileArr.forEach(function(file) {
     fs.readFile(file, function(err, data) {
-      // output[fileArr.indexOf(file)] = data.toString();
       output[fileArr.indexOf(file)] = data.toString();
 
       count++;
