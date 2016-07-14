@@ -13,10 +13,6 @@ module.exports = exports = function readFiles(fileArr, callback, writeStream) {
       count++;
       if(count === fileArr.length) {
         writeStream.write(output.toString());
-        // console.log(output);
-        // output.forEach(function(item) {
-        //   writeStream.write(item);
-        // });
         if(callback) {
           callback(output);
         }
