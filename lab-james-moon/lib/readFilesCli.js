@@ -2,7 +2,12 @@ const fs = require('fs');
 var EE = require('events');
 
 var ee = new EE();
-var files = ['first-file.txt', 'second-file.txt', 'third-file.txt'];
+
+var allFiles = function() {
+  return process.argv.slice(2);
+};
+
+var files = allFiles();
 
 ee.on('file-contents', function(data) {
   if(data) console.log(data.toString());
