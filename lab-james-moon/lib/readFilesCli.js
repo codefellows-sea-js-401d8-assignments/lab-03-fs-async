@@ -13,9 +13,11 @@ ee.on('file-contents', function(data) {
   if(data) console.log(data.toString());
   if(files.length === 0) return;
 
-  fs.readFile(files.shift(), function(err, data) {
-    if(err) return console.log(err);
-    ee.emit('file-contents', data);
+  process.nextTick(() => {
+    fs.readFile(files.shift(), function(err, data) {
+      if(err) return console.log(err);
+      ee.emit('file-contents', data);
+    });
   });
 });
 
