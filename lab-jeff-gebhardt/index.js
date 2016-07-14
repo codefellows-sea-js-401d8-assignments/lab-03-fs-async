@@ -1,9 +1,13 @@
-var readFiles = require('./lib/readFiles.js');
+// var readFiles = require('./lib/readFiles.js');
+const readFilesAsync = require('./lib/readFilesAsync');
 
-var filesArray = ['lib/fileOne.txt', 'lib/fileTwo.txt', 'lib/fileThree.txt'];
+var filesArray = [];
 
-console.log('Reading files...');
-readFiles(filesArray, 3);
-process.nextTick(() => {
-  console.log('Finished!');  
+var fileArgs = process.argv.slice(2);
+
+fileArgs.forEach(function(arg){
+  filesArray.push(arg);
 });
+
+// readFiles(filesArray);
+readFilesAsync(filesArray);
