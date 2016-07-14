@@ -2,12 +2,12 @@
   "name": "lib",
   "version": "1.0.0",
   "description": "",
-  "main": "readFiles.js",
+  "main": ".lib/readFiles.js",
   "dependencies": {
-    "chai": "^3.5.0",
-    "gulp": "^3.9.1"
   },
   "devDependencies": {
+    "chai": "^3.5.0",
+    "gulp": "^3.9.1",
     "mocha": "^2.5.3"
   },
   "scripts": {
