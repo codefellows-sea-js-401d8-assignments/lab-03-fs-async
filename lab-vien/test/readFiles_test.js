@@ -1,8 +1,5 @@
 const expect = require('chai').expect;
-var output = require('../lib/fileData');
 const read = require('../lib/readFiles');
-
-console.log(output);
 
 var files = ['./lab-vien/test/testTextFiles/text1.txt', './lab-vien/test/testTextFiles/text4.txt', './lab-vien/test/testTextFiles/text3.txt'];
 
