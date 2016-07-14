@@ -1,8 +1,11 @@
-// const index = require('../index.js');
 const expect = require('chai').expect;
+const readFilesAsync = require('../lib/readFilesAsync');
 
-describe('Read files inputted from the terminally(async)', function(){
+var filesArray = ['../lib/fileOne.txt', '../lib/fileTWo.txt', '../lib/fileThree.txt'];
+readFilesAsync(filesArray);
+
+describe('Read files inputted from the terminal(async)', function(){
   it('should return the content of each file in order', function(){
-    expect(true).to.equal(true);
+    expect(filesArray.length).to.equal(fileResults.length);
   });
 });
