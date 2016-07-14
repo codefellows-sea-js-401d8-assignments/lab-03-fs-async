@@ -11,12 +11,13 @@ const readFiles = function(files, callback) {
     }
 
     if(files.length == 0) {
-      callback(array);
-      return;
+      return callback(array);
     }
 
-    fs.readFile(files.pop(), function(err, data){
-      if(err) return console.log(err);
+    fs.readFile(files.pop(), function(err, data) {
+      if (err) {
+        return console.log(err);
+      }
       ee.emit('filesRead', data);
     });
   });

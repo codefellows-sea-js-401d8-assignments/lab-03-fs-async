@@ -1,0 +1,13 @@
+#!/usr/bin/env node
+const path = require('path');
+
+const readFiles = require('../lib/readFiles');
+
+const filePaths = process.argv.splice(2)
+  .map((filename) => path.join(process.cwd(), filename));
+
+readFiles(filePaths, function(files) {
+  for (let file of files) {
+    process.stdout.write(file);
+  }
+});
