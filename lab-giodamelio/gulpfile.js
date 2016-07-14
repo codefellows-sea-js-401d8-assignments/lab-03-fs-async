@@ -2,7 +2,7 @@ const gulp = require('gulp');
 const eslint = require('gulp-eslint');
 const mocha = require('gulp-mocha');
 
-const SRC_FILES = 'src/**/*.js';
+const SRC_FILES = 'lib/**/*.js';
 const TEST_FILES = 'test/**/*.js';
 
 // Linter tasks -------------------------------------------
