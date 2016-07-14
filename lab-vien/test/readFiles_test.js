@@ -4,7 +4,7 @@ const read = require('../lib/readFiles');
 
 console.log(output);
 
-var files = ['./lib/textfiles/text1.txt', './lib/textfiles/text4.txt', './lib/textfiles/text3.txt'];
+var files = ['./lab-vien/test/testTextFiles/text1.txt', './lab-vien/test/testTextFiles/text4.txt', './lab-vien/test/testTextFiles/text3.txt'];
 
 var correctOutput = ['text1\n', 'text4\n', 'text3\n'];
 
