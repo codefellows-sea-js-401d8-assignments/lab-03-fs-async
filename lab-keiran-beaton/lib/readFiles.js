@@ -12,3 +12,5 @@ var createContentsArray = function (array) {
   });
   return fileContentsArray;
 };
+
+createContentsArray(process.argv);
