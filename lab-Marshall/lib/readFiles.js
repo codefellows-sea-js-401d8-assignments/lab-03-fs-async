@@ -19,6 +19,14 @@ var one = makeReadFile('../text/one.txt');
 var two = makeReadFile('../text/two.txt');
 var three = makeReadFile('../text/three.txt');
 
-one();
-two();
-three();
+process.nextTick(() => {
+  one();
+});
+
+process.nextTick(() => {
+  two();
+});
+
+process.nextTick(() => {
+  three();
+});
