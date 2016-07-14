@@ -20,7 +20,7 @@ describe('the readFiles function', function() {
 });
 
 describe('the readFiles function', function() {
-  it('should read from the array of files in the input then output correspondingly', function(done) {
+  it('should read from the array of files in the input then output correspondingly, the output needs to be in the right order', function(done) {
     read(files, function(stuff){
       stuff.forEach(function(item) {
         expect(item).to.equal(correctOutput[stuff.indexOf(item)]);
