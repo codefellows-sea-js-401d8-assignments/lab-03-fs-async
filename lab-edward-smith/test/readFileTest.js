@@ -30,9 +30,6 @@ describe('files should be read async', function() {
       expect(values[0]).to.eql(fileData[0]);
       expect(values[1]).to.eql(fileData[1]);
       expect(values[2]).to.eql(fileData[2]);
-    })
-
-
-  })
-
-})
+    });
+  });
+});
