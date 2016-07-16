@@ -7,7 +7,7 @@ const filePaths = process.argv.splice(2)
   .map((filename) => path.join(process.cwd(), filename));
 
 readFiles(filePaths, function(files) {
-  for (let file of files) {
+  for (var file of files) {
     process.stdout.write(file);
   }
 });
