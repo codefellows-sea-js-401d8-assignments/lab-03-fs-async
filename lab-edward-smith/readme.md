@@ -4,4 +4,4 @@
 
 ### To Run
 >* Install modules uses `npm install`
->* Run using `node lib/fileReadCli.js lib/first.txt lib/second.txt lib/third.txt`
+>* Run using `node lib/readFilesCli.js lib/first.txt lib/second.txt lib/third.txt`
