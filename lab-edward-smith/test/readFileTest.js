@@ -22,12 +22,9 @@ describe('files should be read async', function() {
   });
 
   it('should read the files in the order which they were passed', function() {
-    expect(readFiles.readFile([__dirname + '/first.txt', __dirname + '/second.txt', __dirname + '/third.txt'])).to.equal(fileData)
-  //  var result = readFiles.readFile([__dirname + '/first.txt', __dirname + '/second.txt', __dirname + '/third.txt'])
-    // return readFiles.readFile([__dirname + '/first.txt', __dirname + '/second.txt', __dirname + '/third.txt']).to.eventually.equal(fileData)
-    var files = [__dirname + '/first.txt', __dirname + '/second.txt', __dirname + '/third.txt']
-    // readFiles.readFile(files).then(function(res) {
-    //   console.log(result)
-    // })
+    var fileArray = [__dirname + '/first.txt', __dirname + '/second.txt', __dirname + '/third.txt'];
+    readFiles.process(fileArray, function(err, data) {
+      expect(data).to.eql(fileData);
+    });
   });
 });

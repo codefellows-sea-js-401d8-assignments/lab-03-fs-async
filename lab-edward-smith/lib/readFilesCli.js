@@ -1,4 +1,6 @@
 const readFiles = require('../lib/readFiles');
-const files = process.argv.slice(2);
+const args = process.argv.slice(2);
 
-readFiles.process(files);
+readFiles.process(args, function(err, files) {
+  console.log(files);
+});
