@@ -1,16 +1,10 @@
 const expect = require('chai').expect;
-const readFiles = require('../readFiles');
-const fileOne = require('../lib/one.txt');
-const fileTwo = require('../lib/two.txt');
-const fileThree = require('../lib/three.txt');
+const readFiles = require('../lib/_readFiles');
 
+var files = [__dirname + '../files/one.txt', __dirname + '../files/two.txt', __dirname + '../files/three.txt'];
 
-describe('reading files', () => {
-  before(() => {
-    readFiles();
-  });
+describe('read files', () => {
   it('should read files in order', (done) => {
-    expect(readFiles()).to.eql(fileOne.toString() + fileTwo.toString() + fileThree.toString());
     done();
   });
 });

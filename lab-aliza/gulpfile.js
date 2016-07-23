@@ -3,7 +3,7 @@ const eslint = require('gulp-eslint');
 const mocha = require('gulp-mocha');
 
 const testFiles = ['./test/test.js'];
-const appFiles = ['./lib/readFiles.js'];
+const appFiles = ['./lib/readFiles.js', './bin/readFilesCLI.js'];
 
 gulp.tast('default', ['eslint', 'mocha'], () => {
   console.log('default for eslint and mocha');
