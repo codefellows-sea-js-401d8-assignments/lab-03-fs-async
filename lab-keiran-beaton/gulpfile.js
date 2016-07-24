@@ -2,7 +2,7 @@ const gulp = require('gulp');
 const eslint = require('gulp-eslint');
 
 var testFiles = ['test/**/*.js'];
-var appFiles = ['lib/**/*.js', 'bin/readFilesCli'];
+var appFiles = ['lib/**/*.js', 'bin/readFilesCLI'];
 gulp.task('lint:app', () => {
   gulp.src(appFiles)
     .pipe(eslint({
@@ -29,7 +29,7 @@ gulp.task('lint:test', () => {
         'mocha'
       ]
     }))
-    .pipe(eslint.format())
+    .pipe(eslint.format());
 });
 
 gulp.task('default', ['lint:app', 'lint:test']);

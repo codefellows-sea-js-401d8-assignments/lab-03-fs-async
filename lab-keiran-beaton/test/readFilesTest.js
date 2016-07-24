@@ -1,17 +1,29 @@
 const expect = require('chai').expect;
+const fs = require('fs');
 const readFiles = require('../lib/readFiles');
-var readFilesCli = require('../bin/readFilesCli');
 
-describe('readFiles', function() {
-  it('should read every file in the array', function() {
-    expect(process.argv.length).to.eql(readFiles.length);
+describe('read files asynchronously', function() {
+  var fileData = [];
+  before(function(done) {
+    fs.readFile(__dirname + '/fileOne.txt', function(err, data) {
+      fileData.push(data.toString());
+      fs.readFile(__dirname + '/fileTwo.txt', function(err, data) {
+        fileData.push(data.toString());
+        fs.readFile(__dirname + '/fileThree.txt', function(err, data) {
+          fileData.push(data.toString()) ;
+          done();
+        });
+      });
+    });
   });
-});
 
-describe('readFilesCli', function() {
-  it('should console.log the files in order', function() {
-    for(var i = 0; i < process.argv.length; i++) {
-      expect(readFilesCli(process.argv[i])).to.eql(process.argv[i].toString());
-    }
+  it('should read the files in order', function(done) {
+    readFiles([__dirname + '/fileOne.txt', __dirname + '/fileTwo.txt', __dirname + '/fileThree.txt'], function(err, fileArr) {
+      expect(err).to.eql(null);
+      expect(fileArr[0].toString()).to.eql(fileData[0]);
+      expect(fileArr[1].toString()).to.eql(fileData[1]);
+      expect(fileArr[2].toString()).to.eql(fileData[2]);
+      done();
+    });
   });
 });
