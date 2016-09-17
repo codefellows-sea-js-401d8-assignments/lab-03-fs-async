@@ -9,10 +9,7 @@ gulp.task('lint:all', () => {
   gulp.src(appFile)
     .pipe(eslint())
     .pipe(eslint.format());
-  gulp.src(appFile)
-    .pipe(eslint())
-    .pipe(eslint.format());
-  gulp.src(appFile)
+  gulp.src(testFiles)
     .pipe(eslint())
     .pipe(eslint.format());
 });
