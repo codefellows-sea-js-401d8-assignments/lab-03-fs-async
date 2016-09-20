@@ -1,34 +1,24 @@
+'use strict';
+
+module.exports = exports = readFile;
+
 const fs = require('fs');
-const Event = require('events');
-const ee = new Event();
 
-var outputArray = [];
+function readFile(txt, cb){
+  var outputArray = [];
+  var currentFile = 0;
+  var total = txt.length;
 
-ee.on('read', (data) => {
-  console.log('READ: ', data.toString());
-});
-
-const makeReadFile = module.exports = function(txt){
-  return function(){
-    fs.readFile(txt, (err, data) => {
-      ee.emit('read', data);
-      outputArray.push(makeReadFile(txt));
-    });
+  function fileCounter(opts){
+    outputArray[opts.position] = opts.data;
+    currentFile++;
+    if (currentFile === total) cb(null, outputArray)
   };
-};
 
-var one = makeReadFile('../text/one.txt');
-var two = makeReadFile('../text/two.txt');
-var three = makeReadFile('../text/three.txt');
-
-process.nextTick(() => {
-  one();
-});
-
-process.nextTick(() => {
-  two();
-});
-
-process.nextTick(() => {
-  three();
-});
+  for (let i = 0; i < txt.length; i++) {
+    fs.readFile(txt[i], function(err, data) {
+      if (err) return cb(err);
+      fileCounter({position: i, data: data});
+    });
+  }
+}
