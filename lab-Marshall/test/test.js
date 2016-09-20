@@ -13,7 +13,7 @@ describe('async read files?', function() {
     });
   });
 
-  it('logs txt in order?', function(done) {
+  it('logs/reads txt in order?', function(done) {
     readFiles([__dirname + '/one.txt', __dirname + '/two.txt', __dirname + '/three.txt'], function(err, txt) {
       expect(txt[0].toString()).to.eql('This should be logged first\n');
       expect(txt[1].toString()).to.eql('This should be logged second\n');
